@@ -70,8 +70,12 @@ input:checked~.meme-pict {
   transition-duration: 1000ms;
 }
 
-input:checked~.icon,
-.meme:hover>.icon {
+.meme:hover .icon {
+  transform: rotate(45deg);
+  transition-duration: 1000ms;
+}
+
+input:checked~label .icon {
   transform: rotate(45deg);
   transition-duration: 1000ms;
 }
@@ -102,6 +106,14 @@ label {
   height: 1.5em;
   font-family: Arial, Helvetica, sans-serif;
   z-index: 20;
+  text-align: justify;
+  cursor: pointer;
+}
+
+span {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 input {
@@ -109,8 +121,6 @@ input {
 }
 
 .icon {
-  margin-left: calc(var(--meme-container-width) - var(--icon-size));
-  margin-top: -32px;
   width: var(--icon-size);
   height: var(--icon-size);
   transition: all 1s ease-in-out;
