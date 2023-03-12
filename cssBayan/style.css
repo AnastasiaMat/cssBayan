@@ -49,6 +49,16 @@
   }
 }
 
+@keyframes inversion {
+  0% {
+    color: #0a0a5c;
+  }
+
+  100% {
+    color: #fafafa;
+  }
+}
+
 body {
   background-color: #aececf;
   margin: 0px;
@@ -60,18 +70,13 @@ main {
 
 .container {
   margin: auto;
+  color:#0a0a5c;
 }
 
 .meme-pict {
   transform: scale(0);
   display: none;
   border-radius: 5px;
-}
-
-@media (max-width: 319px) {
-  .meme-pict {
-    width: 250px;
-  }
 }
 
 label:hover~.meme-pict {
@@ -111,7 +116,6 @@ label {
   height: 32px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 22px;
-  color:#0a0a5c;
 }
 
 .op {
@@ -156,5 +160,17 @@ input {
     width: 300px;
     margin: 5px;
     padding: 5px;
+  }
+}
+
+@media (max-width: 319px) {
+  .meme-pict {
+    width: 250px;
+  }
+}
+
+@media screen {
+  .container:hover {
+    animation: inversion 500ms forwards;
   }
 }
