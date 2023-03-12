@@ -26,60 +26,13 @@
   }
 }
 
-body {
-  background-color: #aececf;
-  margin: 0px;
-}
-
-main {
-  display: flex;
-}
-
-.container {
-  margin: auto;
-}
-
-.meme-pict {
-  /* width: 300px;
-  height: 0; */
-  /* visibility: hidden; */
-  /* transform: scale(0); */
-  transform: scale(0);
-  display: none;
-  border-radius: 5px;
-}
-
-@media (max-width: 319px) {
-  .meme-pict {
-    width: 250px;
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
   }
-}
-
-label:hover~.meme-pict {
-  /* animation: opacity 1000ms; */
-  /* height: 300px; */
-  display: block;
-  animation: size-change 1000ms forwards;
-}
-
-input:checked~.meme-pict {
-  /* animation: opacity 1000ms; */
-  /* height: 300px; */
-  display: block;
-  transform: scale(1);
-  /* animation: size-change 1000ms forwards; */
-}
-
-.meme:hover~label {
-  animation: color-change 1000ms;
-}
-
-.meme {
-  width: 650px;
-  margin: 10px;
-  padding: 20px;
-  border: darkblue solid 2px;
-  border-radius: 10%;
+  100% {
+    transform: rotate(45deg);
+  }
 }
 
 @keyframes color-change {
@@ -96,6 +49,62 @@ input:checked~.meme-pict {
   }
 }
 
+body {
+  background-color: #aececf;
+  margin: 0px;
+}
+
+main {
+  display: flex;
+}
+
+.container {
+  margin: auto;
+}
+
+.meme-pict {
+  transform: scale(0);
+  display: none;
+  border-radius: 5px;
+}
+
+@media (max-width: 319px) {
+  .meme-pict {
+    width: 250px;
+  }
+}
+
+label:hover~.meme-pict {
+  display: block;
+  animation: size-change 1000ms forwards;
+}
+
+input:checked~.meme-pict {
+  display: block;
+  transform: scale(1);
+}
+
+input:checked~.icon {
+  transform: rotate(45deg);
+}
+
+label:hover {
+  animation: color-change 1000ms forwards;
+}
+
+label:hover~.icon {
+  animation: rotate 500ms forwards;
+}
+
+.meme {
+  position: relative;
+  width: 650px;
+  margin: 10px;
+  padding: 20px;
+  border: darkblue solid 2px;
+  border-radius: 10%;
+}
+
 label {
   display: inline-block;
   width: 100%;
@@ -109,24 +118,21 @@ label {
   visibility: hidden;
 }
 
-@keyframes scale {
-  0% {
-    transform: scale(100);
-  }
-  100% {
-    transform: scale(0);
-  }
-}
+/* img {
+  overflow-clip-margin: unset;
+  overflow: unset;
+} */
 
 input {
   display: none;
 }
 
 .icon {
+  position: absolute;
   /* float: left; */
-  margin-left: calc(650px - 2px - 32px);
-  /* margin-left: 100px; */
-  margin-top: -50px;
+  /* margin-left: calc(650px - 2px - 32px); */
+  margin-left: -30px;
+  /* margin-top: -30px; */
 }
 
 @media (max-width: 319px) {
