@@ -1,56 +1,12 @@
-/* :root {
-  @media (max-width: 319px) {
-    --img-width: 250px;
-  }
+:root {
+  --meme-size: 20em;
+  --meme-container-width: 24em;
+  --icon-size: 1.2em;
+}
 
-  @media (min-width: 320px) and (max-width: 819px) {
-    --img-width: 250px;
-  }
-
-  @media (min-width: 820px) {
-    --img-width: 0px;
-  }
-} */
 @media screen {
   .container:hover {
     animation: inversion 500ms forwards;
-  }
-}
-
-@keyframes size-change {
-  0% {
-    transform: scale(0);
-  }
-
-  50% {
-    transform: scale(0.5);
-  }
-
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes size-change-negative {
-  0% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(0.5);
-  }
-
-  100% {
-    transform: scale(0);
-  }
-}
-
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(45deg);
   }
 }
 
@@ -80,7 +36,8 @@
 
 body {
   background-color: #aececf;
-  margin: 0px;
+  margin: 0;
+  font-size: 2em;
 }
 
 main {
@@ -93,88 +50,58 @@ main {
 }
 
 .meme-pict {
-  /* transform: scale(0); */
-  /* display: none; */
-  border-radius: 5px;
-  width: 600px;
-  height: 0px;
-  transition: all 1s ease-in;
+  width: var(--meme-size);
+  height: 0;
+  margin: auto;
+  border-radius: 7%;
+  transition: all 1s ease-in-out;
 }
-
-/* label:hover~.meme-pict {
-  display: block;
-  animation: size-change 1000ms forwards;
-} */
 
 .meme:hover>.meme-pict {
   display: block;
-  /* animation: size-change 1000ms forwards; */
-  /* width: 600px; */
-  height: 600px;
-  transition-duration: 1500ms;
+  height: var(--meme-size);
+  transition-duration: 1000ms;
   transition-timing-function: ease-in-out;
 }
 
-/* .meme:hover>.icon {
-  transform: rotate(45deg);
-  transition-duration: 500ms;
-  margin-left: -32px;
-  margin-top: 0px;
-} */
-
 input:checked~.meme-pict {
   display: block;
-  /* transform: scale(1); */
-  /* width: 600px; */
-  height: 600px;
-  transition-duration: 1500ms;
+  height: var(--meme-size);
+  transition-duration: 1000ms;
 }
 
 input:checked~.icon,
 .meme:hover>.icon {
   transform: rotate(45deg);
-}
-
-input:checked~.icon,
-.meme:hover>.icon {
-  margin-left: -32px;
-  margin-top: 0px;
+  transition-duration: 1000ms;
 }
 
 input:checked~label {
   color: #000000 !important;
 }
 
+.meme:active>.meme-pict {
+  filter: blur(7px);
+  transition: 500ms;
+}
+
 label:hover {
   animation: color-change 1000ms forwards;
 }
 
-/* label:hover~.icon {
-  transform: rotate(45deg);
-  transition-duration: 500ms;
-  margin-left: -32px;
-  margin-top: 0px;
-} */
-
 .meme {
-  position: relative;
-  width: 650px;
-  margin: 10px;
-  padding: 20px;
-  border: darkblue solid 2px;
-  border-radius: 10%;
+  width: var(--meme-container-width);
+  margin: auto;
+  padding: 1em;
+  cursor: pointer;
 }
 
 label {
   display: inline-block;
   width: 100%;
-  height: 32px;
+  height: 1.5em;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 22px;
-}
-
-.op {
-  visibility: hidden;
+  z-index: 20;
 }
 
 input {
@@ -182,39 +109,38 @@ input {
 }
 
 .icon {
-  position: absolute;
-  /* float: left; */
-  margin-left: calc(650px - 2px - 32px);
-  /* margin-right: 614px; */
+  margin-left: calc(var(--meme-container-width) - var(--icon-size));
   margin-top: -32px;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  transition: all 1s ease-in-out;
 }
 
-@media (max-width: 319px) {
-  .meme-pict {
-    width: 250px;
-  }
-
-  .meme {
-    width: 280px;
-    margin: 10px;
-    padding: 5px;
-  }
+.row {
+  height: 0.25em;
+  margin: 2em 1em;
+  background-color: #0a0a5c;
+  border-radius: 0.2em;
 }
 
 @media (min-width: 320px) and (max-width: 819px) {
-  .meme-pict {
-    width: 300px;
+  :root {
+    --meme-size: 12em;
+    --meme-container-width: 15em;
   }
 
-  .meme {
-    width: 300px;
-    margin: 5px;
-    padding: 5px;
+  body {
+    font-size: 1.2em;
   }
 }
 
 @media (max-width: 319px) {
-  .meme-pict {
-    width: 250px;
+  :root {
+    --meme-size: 10em;
+    --meme-container-width: 12em;
+  }
+
+  body {
+    font-size: 1em;
   }
 }
