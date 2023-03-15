@@ -50,6 +50,7 @@ main {
 }
 
 .meme-pict {
+  display: block;
   width: var(--meme-size);
   height: 0;
   margin: auto;
@@ -57,14 +58,15 @@ main {
   transition: all 1s ease-in-out;
 }
 
-.meme:hover>.meme-pict {
+.meme:hover .meme-pict {
   display: block;
   height: var(--meme-size);
   transition-duration: 1000ms;
   transition-timing-function: ease-in-out;
 }
 
-input:checked~.meme-pict {
+input:checked~.meme-pict,
+input:checked~label>.meme-pict {
   display: block;
   height: var(--meme-size);
   transition-duration: 1000ms;
@@ -103,7 +105,7 @@ label:hover {
 label {
   display: inline-block;
   width: 100%;
-  height: 1.5em;
+  min-height: 1.5em;
   font-family: Arial, Helvetica, sans-serif;
   z-index: 20;
   text-align: justify;
