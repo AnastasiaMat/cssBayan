@@ -94,6 +94,7 @@ input:checked~label {
 label:hover {
   animation: color-change 1000ms forwards;
 }
+
 .meme {
   width: var(--meme-container-width);
   margin: auto;
@@ -154,4 +155,8 @@ input {
   body {
     font-size: 1em;
   }
+}
+
+.fake {
+  width: 0%;
 }
